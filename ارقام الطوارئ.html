@@ -1,601 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYA EMERGENCY</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b1f3a;
-            color: white;
-            direction: rtl;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header {
-            width: 100%;
-            background: #08172b;
-            padding: 15px 30px;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            white-space: nowrap;
-            /* يمنع التفاف النص */
-        }
-
-        .header-title {
-            flex: 1;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            white-space: nowrap;
-            /* يمنع التفاف النص ويخليه في صف واحد */
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .menu,
-        .section {
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .menu .button,
-        .section .button {
-            display: block;
-            background: #123a63;
-            padding: 10px;
-            margin: 8px auto;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            width: 80%;
-            cursor: pointer;
-        }
-
-        .menu .button:hover,
-        .section .button:hover {
-            background: #1f5c99;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section h2 {
-            color: #00c3ff;
-            font-size: 26px;
-            margin-bottom: 20px;
-        }
-
-        .category h3 {
-            color: #ffd166;
-            margin-top: 15px;
-        }
-
-        .category a {
-            font-size: 14px;
-        }
-
-        .back-button {
-            margin-top: 30px;
-            background: #ffd166;
-            color: #0b1f3a;
-            font-weight: bold;
-        }
-
-        .back-button:hover {
-            background: #ffda66cc;
-        }
-
-        /* 🔴 Medical Button */
-        .medical-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 70px;
-            height: 70px;
-            background: red;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-        }
-
-        /* Popup */
-        .popup {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: white;
-            color: black;
-            padding: 25px;
-            border-radius: 15px;
-            width: 300px;
-        }
-
-        .contact {
-            margin: 15px 0;
-        }
-
-        .contact button {
-            background: #123a63;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-
-        .contact button:hover {
-            background: #1f5c99;
-        }
-
-        .close-btn {
-            margin-top: 15px;
-            padding: 8px 15px;
-            border: none;
-            background: red;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="header">
-        <div class="header-content">
-            <div class="logo-text">G-DEVELOPMENTS</div>
-            <div class="header-title">أرقام الطوارئ🚑</div>
-            <div class="logo-text">RME-G</div>
-        </div>
-    </div>
-
-
-    <!-- القائمة الرئيسية -->
-    <div class="menu">
-        <h2>أين أنت</h2>
-        <div class="buttons">
-            <div class="button" data-target="khaznat">منطقة الخزانات</div>
-            <div class="button" data-target="bank">منطقة البنك</div>
-            <div class="button" data-target="clusterA">كلاستر A</div>
-            <div class="button" data-target="clusterB">كلاستر B</div>
-            <div class="button" data-target="clusterC">كلاستر C</div>
-            <div class="button" data-target="clusterD">كلاستر D</div>
-            <div class="button" data-target="clusterE">كلاستر E</div>
-            <div class="button" data-target="clusterF">كلاستر F</div>
-            <div class="button" data-target="brick">مصنع الطوب</div>
-            <div class="button" data-target="aluminum">مصنع الألومنيوم</div>
-            <div class="button" data-target="stores">المخازن</div>
-        </div>
-    </div>
-
-    <!-- منطقة الخزانات -->
-    <div class="section" id="khaznat">
-        <h2>منطقة الخزانات</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01278608582">باسم عنتر - مشرف سلامة</a>
-            <a class="button" href="tel:01271773383">فوزي كامل - مسئول سلامة</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01205748442">صلاح إبراهيم- فني كهرباء</a>
-            <a class="button" href="tel:01144174147">أحمد يسري- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01012028877">أحمد صابر-مديرالمشروع</a>
-            <a class="button" href="tel:01285051491">هاني توفيق- مهندس موقع </a>
-            <a class="button" href="tel:01225634969">محمود قمصان- مشرف تنفيذ </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- منطقة البنك -->
-    <div class="section" id="bank">
-        <h2>منطقة البنك</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01278602108">أحمد خالد- مشرف سلامة وصحة مهنية</a>
-            <a class="button" href="tel:01004858707">علي محسن- مسئول سلامة وصحة مهنية </a>
-            <a class="button" href="tel:01210324545">أمجد جمال-مسئول سلامة وصحة مهنية</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01205748442">صلاح إبراهيم- فني كهرباء</a>
-            <a class="button" href="tel:01144174147">أحمد يسري- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01095422776">شريف كمال- مدير مشروع</a>
-            <a class="button" href="tel:01025753361">محسن فؤاد- مهندس مسؤول</a>
-            <a class="button" href="tel:01285483458">اسلام الخاميسي- مشرف تنفيذ </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- كلاستر A -->
-    <div class="section" id="clusterA">
-        <h2>كلاستر A</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01282161336">مصطفي سمبر</a>
-            <a class="button" href="tel:01282078162">علاء محمود- مشرف سلامة</a>
-            <a class="button" href="tel:01228200486">عادل جمال- مشرف سلامة</a>
-            <a class="button" href="tel:01225632381">كرم احمد- مسئول سلامة</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01205748442">صلاح إبراهيم- فني كهرباء</a>
-            <a class="button" href="tel:01224878144">صلاح محمد- فني كهرباء</a>
-            <a class="button" href="tel:01020699689">بسيوني عبد الجواد- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01282154848">تامر بهاء- مدير مشروع</a>
-            <a class="button" href="tel:01282075712">معتز السنهوري- مهندس مسؤول</a>
-            <a class="button" href="tel:01225632063">عبد الرحمن الشرقاوي- مشرف تنفيذ</a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- كلاستر B -->
-    <div class="section" id="clusterB">
-        <h2>كلاستر B</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01155421533">أحمد عمر - مشرف سلامة</a>
-            <a class="button" href="tel:01289524456">محمد عواد - مشرف سلامة</a>
-            <a class="button" href="tel:01019827865">عبد الستار الهواري - مسؤول سلامة</a>
-            <a class="button" href="tel:01289524456">هارون محمد - مسؤول سلامة</a>
-            <a class="button" href="tel:01226065321">عبد الرحمن جمعة - مسؤول سلامة</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01205748442">صلاح إبراهيم - مشرف كهرباء</a>
-            <a class="button" href="tel:01222756985">تامر السيد - فني كهرباء</a>
-            <a class="button" href="tel:01120403250">مصطفي عبده - فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01285051311">ياسر عبد العزيز - مدير مشروع بلاتو1:8</a>
-            <a class="button" href="tel:01284250095">محمد إبراهيم - مهندس مسؤول</a>
-            <a class="button" href="tel:01289315836">محمد حمودة - مشرف تنفيذ</a>
-            <a class="button" href="tel:01226120780">محمد طلعت - مدير مشروع بلاتو15:22</a>
-            <a class="button" href="tel:01066559013">محمد حسين - مهندس مسؤول</a>
-            <a class="button" href="tel:01278916821">محمد حسين - مشرف تنفيذ</a>
-            <a class="button" href="tel:01282154848">تامر بهاء - مدير مشروع بلاتوه 9:14</a>
-            <a class="button" href="tel:01092961423">اسلام فوزي - مهندس مسؤول</a>
-            <a class="button" href="tel:01281156093">عبد الوهاب علي - مشرف تنفيذ</a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-    <!-- كلاستر C -->
-    <div class="section" id="clusterC">
-        <h2>كلاستر C</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01005324516">أحمد سعيد- سينيور سلامة </a>
-            <a class="button" href="tel:01221863594">خميس اسماعيل- مشرف سلامة </a>
-            <a class="button" href="tel:01207682683">أحمد صفوت- مسئول سلامة </a>
-            <a class="button" href="tel:01225753139">اسلام البخشوان- مسئول سلامة</a>
-            <a class="button" href="tel:01066949234">م.فداءالدين شريف - مسئول سلامة</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01205748442">صلاح إبراهيم- مشرف كهرباء</a>
-            <a class="button" href="tel:01123690994">علي سمير- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01285051311">ياسر عبد العزيز- مدير مشروع بلاتو12:20</a>
-            <a class="button" href="tel:01117779783">أحمد عبد الله- مهندس مسؤول</a>
-            <a class="button" href="tel:01282894141">رضا متولي- مشرف تنفيذ</a>
-            <a class="button" href="tel:01282076262">أحمد صابر- مدير مشروع بلاتوة21:23 و 11</a>
-            <a class="button" href="tel:01278380919">حسام حسن- مهندس موقع </a>
-            <a class="button" href="tel:01288486894">محمدين- مشرف تنفيذ </a>
-            <a class="button" href="tel:01282076262">عبد القادر- مدير مشروع بلاتو3 :10</a>
-            <a class="button" href="tel:01228901144">كريم احمد- مهندس موقع </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- كلاستر D -->
-    <div class="section" id="clusterD">
-        <h2>كلاستر D</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01221939598">محمد حمدي- مشرف سلامة </a>
-            <a class="button" href="tel:01067297515">أحمد العشري- مسئول سلامة </a>
-            <a class="button" href="tel:01004920876">كمال فرحات- مسئول سلامة </a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01278703121">عزالدين أحمد-مشرف كهرباء </a>
-            <a class="button" href="tel:01224878144">صلاح إبراهيم- فني كهرباء </a>
-            <a class="button" href="tel:01123690994">علي سمير- فني كهرباء </a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01278644755">أحمد سعد - مدير المشروع</a>
-            <a class="button" href="tel:01001889211">محمود سامي - مهندس المسؤول</a>
-            <a class="button" href="tel:01129234270">أحمد جاد الله - مشرف تنفيذ</a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- كلاستر E -->
-    <div class="section" id="clusterE">
-        <h2>كلاستر E</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01287194268">الأدهم خطاب</a>
-            <a class="button" href="tel:01091952666">أيمن فاروق</a>
-            <a class="button" href="tel:01093571723">أحمد القصاص</a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01203532028">أسامة كمال- مشرف كهرباء</a>
-            <a class="button" href="tel:01204481449">يوسف أحمد- فني كهرباء</a>
-            <a class="button" href="tel:01277192221">اسلام حمادة- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01282076262">عبد القادر- مدير مشروع </a>
-            <a class="button" href="tel:01211398862">محمد صلاح- مهندس تنفيذ</a>
-            <a class="button" href="tel:01003185244">محمد إسحاق- مشرف تنفيذ</a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- كلاستر F -->
-    <div class="section" id="clusterF">
-        <h2>كلاستر F</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01015759771">محمد سعيد- مشرف سلامة </a>
-            <a class="button" href="tel:01030101831">محمود مدحت رشيد- مسئول سلامة </a>
-            <a class="button" href="tel:01100169547">أدهم سمير- مسئول سلامة </a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01278703121">عز الدين أحمد- مشرف كهرباء</a>
-            <a class="button" href="tel:01224878144">صلاح إبراهيم- فني كهرباء</a>
-            <a class="button" href="tel:01123690994">علي سمير- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01282076262">عبد القادر- مدير مشروع </a>
-            <a class="button" href="tel:01228901144">كريم عبد الله- مهندس تنفيذ</a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- مصنع الطوب -->
-    <div class="section" id="brick">
-        <h2>مصنع الطوب</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:0101460000">محمد خطاب - سينيور سلامة </a>
-            <a class="button" href="tel:01022508493">محمود السيد - مسئول سلامة </a>
-            <a class="button" href="tel:011288913792">مجدي خميس - مشرف سلامة </a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01278703121">عز الدين أحمد - مشرف كهرباء</a>
-            <a class="button" href="tel:01224878144">إصلاح إبراهيم- فني كهرباء</a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01004395769">فتحي محمد إبراهيم- مدير المصنع </a>
-            <a class="button" href="tel:01000040721">أشرف رضا- مشرف </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- مصنع الألومنيوم -->
-    <div class="section" id="aluminum">
-        <h2>مصنع الألومنيوم</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:01278608582">باسم عنتر- مشرف سلامة </a>
-            <a class="button" href="tel:01271773383">فوزي كامل- مسئول سلامة </a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01278703121">عزالدين أحمد - مشرف كهرباء</a>
-            <a class="button" href="tel:01224878144">صلاح إبراهيم- فني كهرباء </a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01507991121">فتحي محمد إبراهيم- مدير المصنع </a>
-            <a class="button" href="tel:01148991134">هشام ضياء- مشرف </a>
-            <a class="button" href="tel:01070689110">محمد عادل- مشرف </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-
-    <!-- المخازن -->
-    <div class="section" id="stores">
-        <h2>المخازن</h2>
-        <div class="category">
-            <h3>تيم السيفتي</h3>
-            <a class="button" href="tel:0101460800">محمد خطاب - سينيور سلامة </a>
-            <a class="button" href="tel:01022508493">محمود السيد - مسئول سلامة </a>
-            <a class="button" href="tel:01126913792">مجدي خميس - مشرف سلامة </a>
-        </div>
-        <div class="category">
-            <h3>الأمن الإداري</h3>
-            <a class="button" href="tel:01282154988">جابر خليفة - صباحي</a>
-            <a class="button" href="tel:01282154779">أحمد عثمان - ليلي</a>
-        </div>
-        <div class="category">
-            <h3>الكهرباء</h3>
-            <a class="button" href="tel:01278703121">عزالدين أحمد - مشرف كهرباء</a>
-            <a class="button" href="tel:01224878144">صلاح إبراهيم- فني كهرباء </a>
-            <a class="button" href="tel:01123690994">علي سمير- فني كهرباء </a>
-        </div>
-        <div class="category">
-            <h3>إدارة التنفيذ</h3>
-            <a class="button" href="tel:01001577426">حمادة شمس- مدير المخازن </a>
-            <a class="button" href="tel:01284457461">مصطفى إبراهيم- امين مخزن </a>
-        </div>
-        <div class="button back-button">العودة للقائمة الرئيسية</div>
-    </div>
-    <!-- 🔴 Medical Popup -->
-    <div id="medical" class="popup">
-        <div class="popup-content">
-            <h2>فريق الاسعافات الاولية</h2>
-            <div class="contact">
-                <p><strong>أحمد جمال- ممرض العيادة </strong></p>
-                <button onclick="callNumber('01200732161')">الاتصال</button>
-            </div>
-            <div class="contact">
-                <p><strong>رجب مصطفى- ممرض العيادة </strong></p>
-                <button onclick="callNumber('01028447549')">الاتصال</button>
-            </div>
-            <button class="close-btn" onclick="closeZone('medical')">إغلاق</button>
-        </div>
-    </div>
-
-    <!-- 🔴 Red Circle Button -->
-    <div class="medical-btn" onclick="openZone('medical')">🚑</div>
-
-    <script>
-        // عرض المنطقة المختارة وإخفاء القائمة
-        document.querySelectorAll('.menu .button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.getAttribute('data-target');
-                document.querySelector('.menu').style.display = 'none';
-                document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-                document.getElementById(target).style.display = 'block';
-            });
-        });
-
-        // زر العودة للقائمة الرئيسية
-        document.querySelectorAll('.back-button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelector('.menu').style.display = 'block';
-                document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-            });
-        });
-
-        // فتح وغلق الطوارئ الطبية
-        function openZone(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-
-        function closeZone(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-
-        // دالة الاتصال عند الضغط
-        function callNumber(number) {
-            window.location.href = 'tel:' + number;
-        }
-    </script>
-
-</body>
-
-</html>
-<script>
-    // عرض المنطقة المختارة وإخفاء القائمة
-    document.querySelectorAll('.menu .button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-target');
-            document.querySelector('.menu').style.display = 'none';
-            document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-            document.getElementById(target).style.display = 'block';
-        });
-    });
-
-    // زر العودة للقائمة الرئيسية
-    document.querySelectorAll('.back-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelector('.menu').style.display = 'block';
-            document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
-        });
-    });
-</script>
-
-</body>
-
-</html>
